@@ -1,0 +1,32 @@
+{%extends 'admin.html'%}
+{% block title%} Homepage {% endblock title%}
+{% block main %}
+<h1 align="center">Posts</h1>
+<div id="posts">
+    {% for post in posts %}
+    <div class="card border-dark">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <a href="/user/{{post.user.username}}">{{post.user.username}}</a>
+            {% if user.id == post.author %}
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle">
+                    <a class="text-primary" href="/delete-post/{{post.id}}">Delete
+                    </a>
+                </button>
+            </div>
+            {% endif %}
+        </div>
+        <div class="card-header">
+            <div class="card-title">{{post.title}}</div>
+        </div>
+        <div class="card-body">
+            <div class="card-text ">{{post.content}}</div>
+        </div>
+        <div class="card-footer text-muted">{{post.date_posted}}</div>
+    </div>
+    <br />
+    {% endfor %}
+</div>
+
+
+{% endblock main%}

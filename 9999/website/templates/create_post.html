@@ -1,0 +1,16 @@
+{%extends 'admin.html'%}
+{% block title%} Yeni Gönderi {% endblock title%}
+{% block main %}
+<h1 align="left">Yeni Gönderi Olustur</h1>
+
+<form method="POST">
+    <textarea name='title' id='text' class='form-control'></textarea>
+    <br />
+    <textarea name='content' id='text' class='form-control'></textarea>
+    <br />
+    <div align="left">
+        <button type="submit" class="btn btn-lg btn-primary">Olustur</button>
+    </div>
+</form>
+
+{% endblock main%}
